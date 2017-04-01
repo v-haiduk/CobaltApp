@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DAL.Entities;
+using System.Data.Entity;
+using DAL.EF;
 
 namespace CobaltApp
 {
@@ -12,6 +15,8 @@ namespace CobaltApp
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new CobaltDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

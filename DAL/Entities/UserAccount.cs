@@ -14,9 +14,9 @@ namespace DAL.Entities
     public class UserAccount : IEntity
     {
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         public string HashOfPassword { get; set; }
     }
 }

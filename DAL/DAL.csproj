@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -55,6 +59,19 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Migrations\201704011422493_DB with user.cs" />
+    <Compile Include="Migrations\201704011422493_DB with user.Designer.cs">
+      <DependentUpon>201704011422493_DB with user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704011431336_DB with user. II.cs" />
+    <Compile Include="Migrations\201704011431336_DB with user. II.Designer.cs">
+      <DependentUpon>201704011431336_DB with user. II.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704011542444_DB with user. III.cs" />
+    <Compile Include="Migrations\201704011542444_DB with user. III.Designer.cs">
+      <DependentUpon>201704011542444_DB with user. III.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\UserAccountRepository.cs" />
@@ -68,6 +85,17 @@
       <Project>{c851534e-4fed-4a59-a470-a5e18933b900}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704011422493_DB with user.resx">
+      <DependentUpon>201704011422493_DB with user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704011431336_DB with user. II.resx">
+      <DependentUpon>201704011431336_DB with user. II.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704011542444_DB with user. III.resx">
+      <DependentUpon>201704011542444_DB with user. III.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

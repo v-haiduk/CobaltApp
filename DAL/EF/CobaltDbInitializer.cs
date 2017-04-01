@@ -12,8 +12,8 @@ namespace DAL.EF
     {
         protected override void Seed(CobaltContext context)
         {
-            context.UserAccounts.Add(new UserAccount {Name = "admin", HashOfPassword = "???"});
-            context.UserAccounts.Add(new UserAccount {Name = "sam", HashOfPassword = "???" });
+            context.UserAccounts.Add(new UserAccount {Name = "admin", HashOfPassword = "123456"});
+            context.UserAccounts.Add(new UserAccount {Name = "sam", HashOfPassword = "123456" });
 
             base.Seed(context);
         }
