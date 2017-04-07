@@ -45,34 +45,42 @@ namespace CobaltApp.Controllers
 
         [HttpGet]
         public ActionResult Authorization()
-        {
-            IEnumerable<UserAccountDTO> users = userService.GetAllElements();
-            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
-            var listOfUsers = Mapper.Map<IEnumerable<UserAccountDTO>, List<UserAccountViewModel>>(users);
-
-            return View(listOfUsers);
+        {         
+            return View();
         }
 
         [HttpPost]
         public ActionResult Authorization(UserAccountViewModel account)
         {
-            Mapper.Initialize(config => config.CreateMap<UserAccountViewModel, UserAccountDTO>());
-            var newAccount = Mapper.Map<UserAccountViewModel, UserAccountDTO>(account);
-
-            var resultOfAuthorizatuin = userService.FindElement(user => user.Name == newAccount.Name && 
-                                                                        user.HashOfPassword == newAccount.HashOfPassword);
-
-            if (resultOfAuthorizatuin != null)
+            var nameOfUser = account.Name;
+            var resultOfFind = userService.GetByLogin(nameOfUser);
+            if (resultOfFind != null)
             {
-                FormsAuthentication.SetAuthCookie(account.Name, true);
-                return RedirectToAction("Index"); //изменить страницу
+                if (account.HashOfPassword == resultOfFind.HashOfPassword)
+                {
+                    FormsAuthentication.SetAuthCookie(account.Name, true);
+                    return RedirectToAction("Index");                           //change of page
+                }
             }
-            else
-            {
-                ModelState.AddModelError("", "error! the password doen't correct!");
-            }
+            ModelState.AddModelError("", "error! the password doen't correct!");
 
-            return View(account); 
+            return View(account);
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult GetAllUsers()
+        {
+            IEnumerable<UserAccountDTO> users = userService.GetAllElements();
+            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
+            var listOfUsers = Mapper.Map<IEnumerable<UserAccountDTO>, List<UserAccountViewModel>>(users);
+
+            return View("ListOfUsers", listOfUsers);
         }
 
 

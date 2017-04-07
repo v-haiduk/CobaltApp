@@ -62,11 +62,23 @@ namespace BLL.Services
         {
             if (predicate == null)
             {
-                throw new Exception("????");
+                throw new ArgumentNullException(nameof(predicate));
             }
+            var predicateResult = predicate.Compile();
 
-            return GetAllElements().Where(predicate.Compile());
+            return GetAllElements().Where(predicateResult);
         }
+
+
+        public UserAccountDTO GetByLogin(string name)
+        {
+            var requestedUser = uow.userRepositories.FindElement(user => user.Name == name).FirstOrDefault();
+            Mapper.Initialize(config => config.CreateMap<UserAccount, UserAccountDTO>());
+
+            return Mapper.Map<UserAccount, UserAccountDTO>(requestedUser);
+        }
+
+
 
         /// <summary>
         /// The method gets the new account of user from PL and save it in DB
@@ -77,12 +89,10 @@ namespace BLL.Services
             UserAccount user = new UserAccount
             {
                 Name = item.Name,
-                HashOfPassword = item.HashOfPassword ///ИЗМЕНИТЬ
+                HashOfPassword = item.HashOfPassword
                 //HashOfPasswrod = CreateHashOfPassword(item);
             };
-            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccount>());
-            var user1 = Mapper.Map<UserAccountDTO, UserAccount>(item);
-            uow.userRepositories.Create(user1);
+            uow.userRepositories.Create(user);
             uow.SaveChanges();
         }
 
@@ -131,14 +141,6 @@ namespace BLL.Services
 
             //return password.ToString(); ///edit
 
-        }
-
-        public UserAccountDTO Athorization(UserAccountDTO item) 
-        {
-            var resultOfFind = FindElement(requestedUser => requestedUser.Name == item.Name && 
-                                            requestedUser.HashOfPassword == item.HashOfPassword);
-
-            return resultOfFind.First(); //
         }
     }
 }

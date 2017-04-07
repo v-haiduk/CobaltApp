@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CobaltApp.Models.UserAccountViewModel>
+@{
+    ViewBag.Title = "ListOfUsers";
+}
+
+<h2>List of users</h2>
+
+@foreach (CobaltApp.Models.UserAccountViewModel user in Model)
+{
+    <p>@user.Name  @user.HashOfPassword</p>
+}
+

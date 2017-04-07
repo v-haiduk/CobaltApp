@@ -34,7 +34,7 @@ namespace DAL.Repositories
 
         public IEnumerable<UserAccount> FindElement(Func<UserAccount, bool> predicate)
         {
-            return db.UserAccounts.Where(predicate).ToList();
+            return db.UserAccounts.Where(predicate);
         }
 
         public void Create(UserAccount item)
