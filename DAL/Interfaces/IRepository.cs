@@ -13,10 +13,11 @@ namespace DAL.Interfaces
     /// This interface encapsulates a logic to work with DB.
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IRepository<TEntity> where TEntity : IEntity
+    public interface IRepository<TEntity> where TEntity : class
     {
         IEnumerable<TEntity> GetAllElements();
         TEntity GetElement(int id);
+        IEnumerable<TEntity> FindElement(Func<TEntity, Boolean> predicate);
         void Create(TEntity item);
         void Update(TEntity item);
         void Delete(int id);

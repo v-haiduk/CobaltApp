@@ -26,7 +26,7 @@ namespace DAL.Repositories
         {
             get
             {
-                if (userAccountRepository != null)
+                if (userAccountRepository == null)
                 {
                     userAccountRepository = new UserAccountRepository(db);
                 }

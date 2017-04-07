@@ -9,21 +9,16 @@ namespace DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(DAL.EF.CobaltContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            context.UserAccounts.AddOrUpdate(
-              p => p.Id,
-              new Entities.UserAccount { Name = "admin", HashOfPassword = "123456" },
-              new Entities.UserAccount { Name = "sam", HashOfPassword = "123456" }
-            );
+            //context.UserAccounts.AddOrUpdate(
+            //  p => p.Id,
+            //  new Entities.UserAccount { Name = "admin", HashOfPassword = "123456" },
+            //  new Entities.UserAccount { Name = "sam", HashOfPassword = "123456" }
+            //);
 
         }
     }

@@ -9,6 +9,6 @@ namespace BLL.Interfaces
 {
     public interface IUserService : IService<UserAccountDTO>
     {
-        string CreateHashOfPassword(string password);
+        string CreateHashOfPassword(UserAccountDTO item);
     }
 }

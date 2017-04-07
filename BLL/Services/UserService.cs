@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.DTO;
@@ -9,6 +10,7 @@ using BLL.Infrastructure;
 using DAL.Interfaces;
 using DAL.Entities;
 using AutoMapper;
+using System.Security.Cryptography;
 
 namespace BLL.Services
 {
@@ -22,7 +24,7 @@ namespace BLL.Services
         //EFUnitOfWork will be used as the object of the IUnitOfWork
         public UserService(IUnitOfWork db)
         {
-            this.uow = db;
+            uow = db;
         }
 
         /// <summary>
@@ -56,6 +58,16 @@ namespace BLL.Services
             return Mapper.Map<UserAccount, UserAccountDTO>(selectedUser);
         }
 
+        public IEnumerable<UserAccountDTO> FindElement(Expression<Func<UserAccountDTO, bool>> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new Exception("????");
+            }
+
+            return GetAllElements().Where(predicate.Compile());
+        }
+
         /// <summary>
         /// The method gets the new account of user from PL and save it in DB
         /// </summary>
@@ -66,8 +78,11 @@ namespace BLL.Services
             {
                 Name = item.Name,
                 HashOfPassword = item.HashOfPassword ///ИЗМЕНИТЬ
+                //HashOfPasswrod = CreateHashOfPassword(item);
             };
-            uow.userRepositories.Create(user);
+            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccount>());
+            var user1 = Mapper.Map<UserAccountDTO, UserAccount>(item);
+            uow.userRepositories.Create(user1);
             uow.SaveChanges();
         }
 
@@ -107,9 +122,23 @@ namespace BLL.Services
             uow.Dispose();
         }
 
-        public string CreateHashOfPassword(string password)
+        public string CreateHashOfPassword(UserAccountDTO item)
         {
             throw new NotImplementedException();
+            //byte[] saltValueBytes = Encoding.ASCII.GetBytes(item.Name);
+            //byte[] passwordValueBytes = Encoding.ASCII.GetBytes(item.HashOfPassword);
+            //PasswordDeriveBytes password = new PasswordDeriveBytes(passwordValueBytes, saltValueBytes, "SHA512", 5);
+
+            //return password.ToString(); ///edit
+
+        }
+
+        public UserAccountDTO Athorization(UserAccountDTO item) 
+        {
+            var resultOfFind = FindElement(requestedUser => requestedUser.Name == item.Name && 
+                                            requestedUser.HashOfPassword == item.HashOfPassword);
+
+            return resultOfFind.First(); //
         }
     }
 }

@@ -11,12 +11,14 @@ namespace DAL.Entities
     /// <summary>
     /// The model for storage in the DB.
     /// </summary>
-    public class UserAccount : IEntity
+    public class UserAccount
     {
         public int Id { get; set; }
-        //[Required]
+
+        [Required]
         public string Name { get; set; }
-        //[Required]
+
+        [Required]
         public string HashOfPassword { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace CobaltApp.App_Start
         private static IKernel CreateKernel()
         {
             var modules = new Ninject.Modules.INinjectModule[] { new BLL.Infrastructure.ServiceModule("DefaultConnection")};
-            var kernel = new StandardKernel();
+            var kernel = new StandardKernel(modules);
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);

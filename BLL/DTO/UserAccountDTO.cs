@@ -12,7 +12,7 @@ namespace BLL.DTO
     /// The DTO (data transfer object) is intermediate class 
     /// for transfer of data between layers
     /// </summary>
-    public class UserAccountDTO : IEntity
+    public class UserAccountDTO 
     {
         public int Id { get; set; }
         public string Name { get; set; }
