@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using BLL.Infrastructure;
 using BLL.Interfaces;
 using BLL.DTO;
 using CobaltApp.Models;
@@ -23,22 +22,15 @@ namespace CobaltApp.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
+            var listOfUsers = GetAllUsers();
 
-        [HttpGet]
-        public ActionResult Registration()
-        {
-            return View();
+            return View("Index", listOfUsers);
         }
 
         [HttpPost]
-        public ActionResult Registration(UserAccountViewModel account)
+        public ActionResult Index(UserAccountViewModel account)
         {
-            Mapper.Initialize(config => config.CreateMap<UserAccountViewModel, UserAccountDTO>());
-            var newAccount = Mapper.Map<UserAccountViewModel, UserAccountDTO>(account);
-            userService.Create(newAccount);
-            FormsAuthentication.SetAuthCookie(account.Name, true);
+            Registration(account);
 
             return RedirectToAction("Index");
         }
@@ -46,7 +38,7 @@ namespace CobaltApp.Controllers
         [HttpGet]
         public ActionResult Authorization()
         {         
-            return View();
+            return View("Login");
         }
 
         [HttpPost]
@@ -74,20 +66,79 @@ namespace CobaltApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult GetAllUsers()
+        [HttpGet]
+        public ActionResult Profile()
         {
-            IEnumerable<UserAccountDTO> users = userService.GetAllElements();
-            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
-            var listOfUsers = Mapper.Map<IEnumerable<UserAccountDTO>, List<UserAccountViewModel>>(users);
-
-            return View("ListOfUsers", listOfUsers);
+            return View();
         }
 
+        [HttpPost]
+        public ActionResult Profile(int? id)
+        {
+            var selectedUser = userService.GetElement(id);
+            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
+            var profile = Mapper.Map<UserAccountDTO, UserAccountViewModel>(selectedUser);
 
-        //private void FullMappingOfModels(TE)
-        //{
-        //    Mapper.Initialize(config=> config.CreateMap<>)
-        //}
+            return View(profile);
+        }
+
+        [HttpGet]
+        public ActionResult UpdateAccount(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            var accountDTOForUpdate = userService.GetElement(id);
+            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
+            var accountViewForUpdate = Mapper.Map<UserAccountDTO, UserAccountViewModel>(accountDTOForUpdate);
+            if (accountViewForUpdate != null)
+            {
+                return View(accountViewForUpdate);
+            }
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult UpdateAccount(UserAccountViewModel account)
+        {
+            Mapper.Initialize(config => config.CreateMap<UserAccountViewModel, UserAccountDTO>());
+            var updatedAccount = Mapper.Map<UserAccountViewModel, UserAccountDTO>(account);
+            userService.Update(updatedAccount);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAccount(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            userService.Delete(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public void Registration(UserAccountViewModel account)
+        {
+            Mapper.Initialize(config => config.CreateMap<UserAccountViewModel, UserAccountDTO>());
+            var newAccount = Mapper.Map<UserAccountViewModel, UserAccountDTO>(account);
+            userService.Create(newAccount);
+            FormsAuthentication.SetAuthCookie(account.Name, true);
+        }
+
+        public IEnumerable<UserAccountViewModel> GetAllUsers()
+        {
+            var users = userService.GetAllElements();
+            Mapper.Initialize(config => config.CreateMap<UserAccountDTO, UserAccountViewModel>());
+            var listOfUsers = Mapper.Map<IEnumerable<UserAccountDTO>, IEnumerable<UserAccountViewModel>>(users);
+
+            return listOfUsers;
+        }
+
 
     }
 }

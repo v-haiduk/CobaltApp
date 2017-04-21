@@ -32,9 +32,10 @@ namespace BLL.Services
         /// </summary>
         public IEnumerable<UserAccountDTO> GetAllElements()
         {
+            var selectedUsers = uow.UserRepository.GetAllElements();
             Mapper.Initialize(config => config.CreateMap<UserAccount, UserAccountDTO>());
 
-            return Mapper.Map<IEnumerable<UserAccount>, List<UserAccountDTO>>(uow.userRepositories.GetAllElements());
+            return Mapper.Map<IEnumerable<UserAccount>, List<UserAccountDTO>>(selectedUsers);
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace BLL.Services
             {
                 throw new ValidationException("?????", "");
             }
-            var selectedUser = uow.userRepositories.GetElement(id.Value);
+            var selectedUser = uow.UserRepository.GetElement(id.Value);
             if (selectedUser == null)
             {
                 throw new ValidationException("??????", "");
@@ -58,6 +59,10 @@ namespace BLL.Services
             return Mapper.Map<UserAccount, UserAccountDTO>(selectedUser);
         }
 
+        /// <summary>
+        /// The method finds a user by predicate
+        /// </summary>
+        /// <param name="predicate"></param>
         public IEnumerable<UserAccountDTO> FindElement(Expression<Func<UserAccountDTO, bool>> predicate)
         {
             if (predicate == null)
@@ -65,14 +70,18 @@ namespace BLL.Services
                 throw new ArgumentNullException(nameof(predicate));
             }
             var predicateResult = predicate.Compile();
+            var foundUsers = GetAllElements().Where(predicateResult);
 
-            return GetAllElements().Where(predicateResult);
+            return foundUsers;
         }
 
-
+        /// <summary>
+        /// Method finds a user by login
+        /// </summary>
+        /// <param name="name">The user's login</param>
         public UserAccountDTO GetByLogin(string name)
         {
-            var requestedUser = uow.userRepositories.FindElement(user => user.Name == name).FirstOrDefault();
+            var requestedUser = uow.UserRepository.FindElement(user => user.Name == name).FirstOrDefault();
             Mapper.Initialize(config => config.CreateMap<UserAccount, UserAccountDTO>());
 
             return Mapper.Map<UserAccount, UserAccountDTO>(requestedUser);
@@ -92,14 +101,14 @@ namespace BLL.Services
                 HashOfPassword = item.HashOfPassword
                 //HashOfPasswrod = CreateHashOfPassword(item);
             };
-            uow.userRepositories.Create(user);
+            uow.UserRepository.Create(user);
             uow.SaveChanges();
         }
 
         /// <summary>
-        /// The method gets the update account of user from PL and save it in DB
+        /// The method gets the updated account of user from PL and save it in DB
         /// </summary>
-        /// <param name="item">The update account</param>
+        /// <param name="item">The updated account</param>
         public void Update(UserAccountDTO item)
         {
             UserAccount user = new UserAccount
@@ -108,7 +117,7 @@ namespace BLL.Services
                 Name = item.Name,
                 HashOfPassword = item.HashOfPassword ///ИЗМЕНИТЬ
             };
-            uow.userRepositories.Update(user);
+            uow.UserRepository.Update(user);
             uow.SaveChanges();
         }
 
@@ -123,7 +132,7 @@ namespace BLL.Services
                 throw new ValidationException("???", "");
             }
 
-            uow.userRepositories.Delete(id.Value);
+            uow.UserRepository.Delete(id.Value);
             uow.SaveChanges();
         }
 

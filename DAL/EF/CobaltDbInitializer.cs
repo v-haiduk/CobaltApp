@@ -15,6 +15,10 @@ namespace DAL.EF
             context.UserAccounts.Add(new UserAccount {Name = "admin", HashOfPassword = "123456"});
             context.UserAccounts.Add(new UserAccount {Name = "sam", HashOfPassword = "123456" });
 
+            context.Servers.Add(new Server {Adress = "192.168.20.000", SubnetMask = "255.255.255.0", Subnet = "192.168.20.0/4"});
+
+            context.Clusters.Add(new Cluster { Adress = "192.168.20.000", SubnetMask = "255.255.255.0", Subnet = "192.168.20.0/4" });
+
             base.Seed(context);
         }
     }

@@ -26,6 +26,8 @@ namespace CobaltApp.Util
         private void AddBindings()
         {
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IServerService>().To<ServerService>();
+            kernel.Bind<IClusterService>().To<ClusterService>();
         }
 
         public object GetService(Type serviceType)

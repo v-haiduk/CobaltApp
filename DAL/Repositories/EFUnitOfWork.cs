@@ -16,13 +16,15 @@ namespace DAL.Repositories
     {
         private CobaltContext db;
         private UserAccountRepository userAccountRepository;
+        private ServerRepository serverRepository;
+        private IClusterRepository clusterRepository;
 
         public EFUnitOfWork()
         {
             db = new CobaltContext();
         }
 
-        public IUserRepository userRepositories
+        public IUserRepository UserRepository
         {
             get
             {
@@ -31,6 +33,30 @@ namespace DAL.Repositories
                     userAccountRepository = new UserAccountRepository(db);
                 }
                 return userAccountRepository;
+            }
+        }
+
+        public IServerRepository ServerRepository
+        {
+            get
+            {
+                if (serverRepository == null)
+                {
+                    serverRepository = new ServerRepository(db);
+                }
+                return serverRepository;
+            }
+        }
+
+        public IClusterRepository ClusterRepository
+        {
+            get
+            {
+                if (clusterRepository == null)
+                {
+                    clusterRepository = new ClusterRepository(db);
+                }
+                return clusterRepository;
             }
         }
 

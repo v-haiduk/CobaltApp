@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>SignUp</title>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="~/Content/custom.css" rel="stylesheet">
+    <link href="~/Content/icheck/flat/green.css" rel="stylesheet">
+    <script src="~/Scripts/jquery.min.js"></script>
+</head>
+
+<body style="background:#F7F7F7;">
+    <div id="wrapper">
+        <section class="login_content">
+            <form method="post" role="form">
+                <h1>Create Account</h1>
+                <input type="hidden" name="Id" />
+                <div>
+                    <input type="text" class="form-control" name="Name" placeholder="Name" maxlength="20" required />
+                </div>
+                <div>
+                    <input type="password" class="form-control" name="HashOfPassword" placeholder="Password" maxlength="20" required />
+                </div>
+                <div>
+                    <button class="btn btn-block btn-default" type="submit"/>Sign up </button>
+                </div>
+                <div class="separator">
+                    <div>
+                        <h1><i class="glyphicon glyphicon-refresh" style="font-size: 26px;"></i> Cobalt balancer!</h1>
+                        <p>©2017 All Rights Reserved. Powered by Violetta Haiduk</p>
+                    </div>
+                </div>
+            </form><!-- form -->
+        </section><!-- content -->
+    </div>
+</body>
+</html>

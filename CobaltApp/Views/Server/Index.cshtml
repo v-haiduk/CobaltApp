@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CobaltApp.Models.ServerViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Server Managment</h3>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>The list of servers</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>IP Adress</th>
+                            <th>Subnet mask</th>
+                            <th>Subnet</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (CobaltApp.Models.ServerViewModel currentServer in Model)
+                    {
+                        <tr>
+                            <th scope="row">@currentServer.Id</th>
+                            <td>@currentServer.Adress</td>
+                            <td>@currentServer.SubnetMask</td>
+                            <td>@currentServer.Subnet</td>
+                            <td>
+                                <a href="/Server/UpdateServer/@currentServer.Id"><span class="glyphicon glyphicon-edit"></span></a>  
+                            </td>
+                            <td>
+                                <form method="post" action="DeleteServer">
+                                    <input type="hidden" name="Id" value="@currentServer.Id"/>
+                                    <button type="submit" class="btn btn-link">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </form>                                
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

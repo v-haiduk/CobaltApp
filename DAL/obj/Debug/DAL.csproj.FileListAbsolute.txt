@@ -17,3 +17,5 @@ C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.DBwithuserII.resources
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.DBwithuserIII.resources
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.updateDB.resources
+C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.serveradded.resources
+C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.clusteradded.resources

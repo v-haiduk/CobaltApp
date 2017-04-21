@@ -1,43 +1,162 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title - Cobalt</title>
+
+    <!----Styles.Render("~/Content/css")
+    Scripts.Render("~/bundles/modernizr")-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="~/Content/custom.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/maps/jquery-jvectormap-2.0.3.css" />
+    <link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
+    <link href="~/Content//floatexamples.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/nprogress.js"></script>
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="#" class="site_title"><i class="glyphicon glyphicon-refresh"></i> Cobalt</a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>currentUser.Name</h2>
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="glyphicon glyphicon-user"></i>  Users</a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="/Account/Index">Accounts management</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="glyphicon glyphicon-tasks"></i> Servers</a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="/Server/AddServer">Add a server</a></li>
+                                        <li><a href="/Server/Index">Servers management</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="glyphicon glyphicon-hdd"></i>  Clusters</a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="/Cluster/CreateCluster">Create a cluster</a></li>
+                                        <li><a href="/Cluster/Index">Cluster management</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="glyphicon glyphicon-cog"></i>  Sittings</a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="#">sub-item 1</a></li>
+                                        <li><a href="#">sub-item 2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons-->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a href="/Account/LogOff" data-toggle="tooltip" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!--/menu footer buttons -->
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Registr", "Index", "Account")</li>
-                </ul>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="glyphicon glyphicon-align-justify"></i></a>
+                        </div>
+                    </nav>
+                </div>
             </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="dashboard_graph">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <!-- footer content -->
+                <footer>
+                    <div class="copyright-info">
+                        <p class="pull-right">&copy; @DateTime.Now.Year - Powered by Violetta Haduk</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+            <!-- /page content -->
+
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group"></ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <!-- /footer content -->
 </body>
+
 </html>

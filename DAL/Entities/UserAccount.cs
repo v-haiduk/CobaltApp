@@ -9,7 +9,7 @@ using Common;
 namespace DAL.Entities
 {
     /// <summary>
-    /// The model for storage in the DB.
+    /// The model of user for storage in the DB.
     /// </summary>
     public class UserAccount
     {

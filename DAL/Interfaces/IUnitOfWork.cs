@@ -15,7 +15,9 @@ namespace DAL.Interfaces
     /// </summary>
     public interface IUnitOfWork: IDisposable
     {
-        IUserRepository userRepositories { get; }
+        IUserRepository UserRepository { get; }
+        IServerRepository ServerRepository { get; }
+        IClusterRepository ClusterRepository { get; }
         void SaveChanges();
     }
 }

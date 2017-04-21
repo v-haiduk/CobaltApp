@@ -15,7 +15,6 @@ namespace CobaltApp.Controllers
         {
             return View();
         }
-
        
     }
 }

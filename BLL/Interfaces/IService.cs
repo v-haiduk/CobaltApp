@@ -12,7 +12,7 @@ namespace BLL.Interfaces
     /// The interface
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IService<TEntity> //where TEntity : class IEntity
+    public interface IService<TEntity> 
     {
         IEnumerable<TEntity> GetAllElements();
         TEntity GetElement(int? id);

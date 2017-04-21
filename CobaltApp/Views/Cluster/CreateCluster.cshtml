@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "CreateCluster";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Cluster Managment</h3>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New cluster </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" role="form" data-parsley-validate class="form-horizontal form-label-left">
+                    <input type="hidden" name="Id" />
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="adress">
+                            IP Adress <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="adress" name="Adress" placeholder="127.0.0.1"
+                                   pattern="((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)"
+                                   class="form-control col-md-7 col-xs-12" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mask">
+                            Subnet mask <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="mask" name="SubnetMask" placeholder="255.255.255.0"
+                                   pattern="((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}0"
+                                   class="form-control col-md-7 col-xs-12" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subnet" class="control-label col-md-3 col-sm-3 col-xs-12">
+                            Subnet <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="subnet" name="Subnet" placeholder="127.0.0.1/24"
+                                   class="form-control col-md-7 col-xs-12" required>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary" disabled>Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!----x_content-->
+        </div><!----x_panel-->
+    </div>
+</div>
+

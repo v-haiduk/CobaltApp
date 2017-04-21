@@ -1,12 +1,106 @@
-﻿
+﻿@model IEnumerable<CobaltApp.Models.UserAccountViewModel>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="page-title">
+    <div class="title_left">
+        <h3>User Managment</h3>
+    </div>
+</div>
 
-<a href="Account/Registration" class="btn btn-primary">Registration</a>
+<div class="clearfix"></div>
 
-<a href="Account/Authorization" class="btn btn-primary">Authorization</a>
+<div class="row">
+    <!--the table of users--->
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>The list of users</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Login</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (CobaltApp.Models.UserAccountViewModel currentUser in Model)
+                    {
+                        <tr>
+                            <th scope="row">@currentUser.Id</th>
+                            <td>@currentUser.Name</td>
+                            <td>
+                                <form method="get">
+                                    <a href="UpdateAccount/@currentUser.Id" class="btn btn-link">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="DeleteAccount">
+                                    <input type="hidden" name="Id" value="@currentUser.Id" />
+                                    <button class="btn btn-link" type="submit">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!---/the table of users--->
 
-<a href="Account/LogOff" class="btn btn-primary">LogOff</a>
+    <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create an account </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" role="form" data-parsley-validate class="form-horizontal form-label-left">
+                    <input type="hidden" name="Id" />
+                    
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">
+                            Login <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="login" name="Name" placeholder="Name"                                  
+                                   class="form-control col-md-7 col-xs-12" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">
+                            Password <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="password" id="password" name="HashOfPassword" placeholder="Password"
+                                   class="form-control col-md-7 col-xs-12" required>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary" disabled>Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!----x_content-->
+        </div><!----x_panel-->
+    </div>
+
+
+</div>
