@@ -22,6 +22,8 @@ namespace CobaltApp.Controllers
         public ActionResult Index()
         {
             var listOfClusters = GetAllClusters();
+            ViewBag.CountOfClusters = GetAmountOfCluster();
+
             return View(listOfClusters);
         }
 
@@ -90,6 +92,19 @@ namespace CobaltApp.Controllers
             return listOfClusters;
         }
 
-        
+        [HttpGet]
+        public ActionResult GetDescriptionOfCluster(int? id)
+        {
+            var cluster = clusterService.GetElement(id);
+            Mapper.Initialize(config => config.CreateMap<ClusterDTO, ClusterViewModel>());
+            var clusterForDisplay = Mapper.Map<ClusterDTO, ClusterViewModel>(cluster);
+
+            return View("Profile", clusterForDisplay);
+        }
+
+        public int GetAmountOfCluster()
+        {
+            return clusterService.Count();
+        }
     }
 }

@@ -7,6 +7,7 @@
     <div class="title_left">
         <h3>Server Managment</h3>
     </div>
+    @ViewBag.CountOfServers
 </div>
 
 <div class="clearfix"></div>
@@ -25,7 +26,8 @@
                             <th>#</th>
                             <th>IP Adress</th>
                             <th>Subnet mask</th>
-                            <th>Subnet</th>
+                            <th>Subnetwork</th>
+                            <th>Cluster</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -35,9 +37,12 @@
                     {
                         <tr>
                             <th scope="row">@currentServer.Id</th>
-                            <td>@currentServer.Adress</td>
+                            <td>
+                                <a href="/Server/GetDescriptionOfServer/@currentServer.Id"> @currentServer.IPAdress</a>
+</td>
                             <td>@currentServer.SubnetMask</td>
-                            <td>@currentServer.Subnet</td>
+                            <td>@currentServer.Subnetwork</td>
+                            <td>@currentServer.ClusterVM</td>
                             <td>
                                 <a href="/Server/UpdateServer/@currentServer.Id"><span class="glyphicon glyphicon-edit"></span></a>  
                             </td>

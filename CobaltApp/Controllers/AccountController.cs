@@ -23,6 +23,7 @@ namespace CobaltApp.Controllers
         public ActionResult Index()
         {
             var listOfUsers = GetAllUsers();
+            ViewBag.CountOfUsers = GetAmountOfUsers();
 
             return View("Index", listOfUsers);
         }
@@ -137,6 +138,11 @@ namespace CobaltApp.Controllers
             var listOfUsers = Mapper.Map<IEnumerable<UserAccountDTO>, IEnumerable<UserAccountViewModel>>(users);
 
             return listOfUsers;
+        }
+
+        public int GetAmountOfUsers()
+        {
+            return userService.Count();
         }
 
 

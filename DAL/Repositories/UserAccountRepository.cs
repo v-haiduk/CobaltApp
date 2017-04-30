@@ -55,6 +55,5 @@ namespace DAL.Repositories
                 db.UserAccounts.Remove(userForDelete);
             }
         }
-
     }
 }

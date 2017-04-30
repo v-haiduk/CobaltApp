@@ -24,9 +24,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Name</th>
                             <th>IP Adress</th>
                             <th>Subnet mask</th>
-                            <th>Subnet</th>
+                            <th>Subnetwork</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -36,15 +37,18 @@
                         {
                             <tr>
                                 <th scope="row">@currentCluster.Id</th>
-                                <td>@currentCluster.Adress</td>
+                                <td>
+                                    <a href="/Cluster/GetDescriptionOfCluster/@currentCluster.Id"> @currentCluster.Name </a>
+                                </td>
+                                <td>@currentCluster.IPAdress</td>
                                 <td>@currentCluster.SubnetMask</td>
-                                <td>@currentCluster.Subnet</td>
+                                <td>@currentCluster.Subnetwork</td>
                                 <td>
                                     <a href="/Cluster/UpdateCluster/@currentCluster.Id"><span class="glyphicon glyphicon-edit"></span></a>
                                 </td>
                                 <td>
-                                    <form method="post" action="DeleteCluster">
-                                        <input type="hidden" name="Id" value="@currentCluster.Id" />
+                                    <form method="post" action="/Cluster/DeleteCluster">
+                                        <input type="hidden" name="Id" value="@currentCluster.Id"/>
                                         <button type="submit" class="btn btn-link">
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </button>

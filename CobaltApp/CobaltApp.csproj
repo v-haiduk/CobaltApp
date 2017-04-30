@@ -285,6 +285,8 @@
     <Content Include="Views\Cluster\Index.cshtml" />
     <Content Include="Views\Cluster\CreateCluster.cshtml" />
     <Content Include="Views\Cluster\UpdateCluster.cshtml" />
+    <Content Include="Views\Cluster\Profile.cshtml" />
+    <Content Include="Views\Server\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

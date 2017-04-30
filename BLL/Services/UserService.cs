@@ -141,6 +141,11 @@ namespace BLL.Services
             uow.Dispose();
         }
 
+        public int Count()
+        {
+            return uow.UserRepository.GetAllElements().Count();
+        }
+
         public string CreateHashOfPassword(UserAccountDTO item)
         {
             throw new NotImplementedException();

@@ -14,10 +14,14 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         [Required]
-        public string Adress { get; set; }
+        public string Name { get; set; }
+        [Required]
+        public string IPAdress { get; set; }
         [Required]
         public string SubnetMask { get; set; }
         [Required]
-        public string Subnet { get; set; }
+        public string Subnetwork { get; set; }
+
+        public virtual ICollection<Server> Servers { get; set; }
     }
 }

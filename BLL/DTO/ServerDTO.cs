@@ -13,8 +13,10 @@ namespace BLL.DTO
     public class ServerDTO
     {
         public int Id { get; set; }
-        public string Adress { get; set; }
+        public string IPAdress { get; set; }
         public string SubnetMask { get; set; }
-        public string Subnet { get; set; }
+        public string Subnetwork { get; set; }
+
+        public ClusterDTO ClusterDTO { get; set; }
     }
 }

@@ -8,8 +8,11 @@ namespace CobaltApp.Models
     public class ClusterViewModel
     {
         public int Id { get; set; }
-        public string Adress { get; set; }
+        public string Name { get; set; }
+        public string IPAdress { get; set; }
         public string SubnetMask { get; set; }
-        public string Subnet { get; set; }
+        public string Subnetwork { get; set; }
+
+        public virtual ICollection<ServerViewModel> Servers { get; set; }
     }
 }

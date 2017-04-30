@@ -54,5 +54,6 @@ namespace DAL.Repositories
                 db.Servers.Remove(serverForDelete);
             }
         }
+
     }
 }

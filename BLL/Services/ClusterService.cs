@@ -114,5 +114,10 @@ namespace BLL.Services
         {
             uow.Dispose();
         }
+
+        public int Count()
+        {
+            return uow.ClusterRepository.GetAllElements().Count();
+        }
     }
 }

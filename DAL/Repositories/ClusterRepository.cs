@@ -49,10 +49,10 @@ namespace DAL.Repositories
 
         public void Delete(int id)
         {
-            var serverForDelete = db.Clusters.Find(id);
-            if (serverForDelete != null)
+            var clusterForDelete = db.Clusters.Find(id);
+            if (clusterForDelete != null)
             {
-                db.Clusters.Remove(serverForDelete);
+                db.Clusters.Remove(clusterForDelete);
             }
         }
     }

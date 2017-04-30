@@ -17,7 +17,7 @@ namespace DAL.Repositories
         private CobaltContext db;
         private UserAccountRepository userAccountRepository;
         private ServerRepository serverRepository;
-        private IClusterRepository clusterRepository;
+        private ClusterRepository clusterRepository;
 
         public EFUnitOfWork()
         {

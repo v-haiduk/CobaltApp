@@ -22,6 +22,8 @@ namespace CobaltApp.Controllers
         public ActionResult Index()
         {
             var listOfServers = GetAllServers();
+            ViewBag.CountOfServers = GetAmountOfServers();
+
             return View(listOfServers);
         }
 
@@ -89,6 +91,21 @@ namespace CobaltApp.Controllers
             var listOfServers = Mapper.Map<IEnumerable<ServerDTO>, List<ServerViewModel>>(servers);
 
             return listOfServers;
+        }
+
+        [HttpGet]
+        public ActionResult GetDescriptionOfServer(int? id)
+        {
+            var server = serverService.GetElement(id.Value);
+            Mapper.Initialize(config => config.CreateMap<ServerDTO, ServerViewModel>());
+            var serverForDisplay = Mapper.Map<ServerDTO, ServerViewModel>(server);
+
+            return View("Profile", serverForDisplay);
+        }
+
+        public int GetAmountOfServers()
+        {
+            return serverService.Count();
         }
     }
 }

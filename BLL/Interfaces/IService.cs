@@ -21,5 +21,6 @@ namespace BLL.Interfaces
         void Update(TEntity item);
         void Delete(int? id);
         void Dispose();
+        int Count();
     }
 }
