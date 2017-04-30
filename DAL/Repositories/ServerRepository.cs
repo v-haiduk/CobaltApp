@@ -13,12 +13,15 @@ namespace DAL.Repositories
     /// <summary>
     /// The implementation of ServerRepository
     /// </summary>
-    public class ServerRepository: IServerRepository
+    public class ServerRepository : IServerRepository
     {
         private CobaltContext db;
+        //private readonly DbSet<Server> _dbSet;
+
         public ServerRepository(CobaltContext context)
         {
             this.db = context;
+           //_dbSet = db.Set<Server>();
         }
 
         public IEnumerable<Server> GetAllElements()
@@ -26,8 +29,10 @@ namespace DAL.Repositories
             return db.Servers;
         }
 
+
         public Server GetElement(int id)
         {
+            //return _dbSet.FirstOrDefault(serv=> serv.Id == id);
             return db.Servers.Find(id);
         }
 

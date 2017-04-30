@@ -11,7 +11,8 @@ namespace CobaltApp.Models
         public string IPAdress { get; set; }
         public string SubnetMask { get; set; }
         public string Subnetwork { get; set; }
+        public string Cluster { get; set; }
 
-        public ClusterViewModel ClusterVM { get; set; }
+        //public ClusterViewModel ClusterDTOKey { get; set; }
     }
 }

@@ -13,3 +13,22 @@ C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\BLL\bin
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\BLL\obj\Debug\BLL.dll
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\BLL\obj\Debug\BLL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\obj\Debug\BLL.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\obj\Debug\BLL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\BLL.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\BLL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\AutoMapper.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Common.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\DAL.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Ninject.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Ninject.Web.Common.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Common.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\DAL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\AutoMapper.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Ninject.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\Ninject.Web.Common.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Violetta Haiduk\Documents\Visual Studio 2015\Projects\CobaltApp\BLL\bin\Debug\Ninject.Web.Common.dll
+C:\Users\Violetta Haiduk\Documents\Visual Studio 2015\Projects\CobaltApp\BLL\bin\Debug\Ninject.Web.Common.xml

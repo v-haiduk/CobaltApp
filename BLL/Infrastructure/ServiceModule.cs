@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
 using DAL.Interfaces;
+using DAL.EF;
 using DAL.Repositories;
+using Ninject.Web.Common;
 
 namespace BLL.Infrastructure
 {
@@ -21,6 +24,7 @@ namespace BLL.Infrastructure
             this.connectionString = connection;
         }
 
+
         /// <summary>
         /// The method establishes dependecies.
         /// The EFUnitOfWorh use as the object IUnitOfWork
@@ -28,6 +32,8 @@ namespace BLL.Infrastructure
         public override void Load()
         {
             Bind<IUnitOfWork>().To<EFUnitOfWork>().WithConstructorArgument(connectionString);
+            //Bind<IUnitOfWork>().To<EFUnitOfWork>().InRequestScope();
+            //Bind<DbContext>().To<CobaltContext>().InRequestScope();
         }
     }
 }

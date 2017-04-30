@@ -13,6 +13,6 @@ namespace CobaltApp.Models
         public string SubnetMask { get; set; }
         public string Subnetwork { get; set; }
 
-        public virtual ICollection<ServerViewModel> Servers { get; set; }
+        //public virtual ICollection<ServerViewModel> ServersVMList { get; set; }
     }
 }

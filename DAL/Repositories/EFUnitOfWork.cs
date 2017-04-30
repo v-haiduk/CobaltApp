@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,16 @@ namespace DAL.Repositories
     /// </summary>
     public class EFUnitOfWork : IUnitOfWork
     {
+        //private readonly DbContext db;
         private CobaltContext db;
         private UserAccountRepository userAccountRepository;
         private ServerRepository serverRepository;
         private ClusterRepository clusterRepository;
 
+        //public EFUnitOfWork(DbContext db)
+        //{
+        //    this.db = db;
+        //}
         public EFUnitOfWork()
         {
             db = new CobaltContext();

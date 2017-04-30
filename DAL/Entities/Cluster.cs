@@ -22,6 +22,6 @@ namespace DAL.Entities
         [Required]
         public string Subnetwork { get; set; }
 
-        public virtual ICollection<Server> Servers { get; set; }
+        public virtual ICollection<Server> ServersList { get; set; }
     }
 }

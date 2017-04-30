@@ -20,3 +20,27 @@ C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.serveradded.resources
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.clusteradded.resources
 C:\Users\Violetta Haiduk\documents\visual studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations._3004.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\DAL.dll.config
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\DAL.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\DAL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\AutoMapper.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\Common.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\Common.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\AutoMapper.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.DBwithuser.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.DBwithuserII.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.DBwithuserIII.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.updateDB.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.serveradded.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.clusteradded.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations._3004.resources
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.dll
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.pdb
+C:\Users\Violetta Haiduk\Desktop\CobaltApp-master\CobaltApp-master\DAL\obj\Debug\DAL.Migrations.update_fields.resources
+C:\Users\Violetta Haiduk\Documents\Visual Studio 2015\Projects\CobaltApp\DAL\obj\Debug\DAL.Migrations.update_fields.resources

@@ -18,6 +18,6 @@ namespace BLL.DTO
         public string SubnetMask { get; set; }
         public string Subnetwork { get; set; }
 
-        public virtual ICollection<ServerDTO> Servers { get; set; }
+        //public ICollection<ServerDTO> ServersDTOList { get; set; }
     }
 }

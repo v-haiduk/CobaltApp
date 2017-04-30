@@ -24,14 +24,14 @@ namespace DAL.EF
             context.Clusters.Add(white);
             context.Clusters.Add(black);
 
-            context.Servers.Add(new Server {IPAdress = "192.168.20.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = blue });
-            context.Servers.Add(new Server {IPAdress = "192.168.21.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = blue });
-            context.Servers.Add(new Server {IPAdress = "192.168.22.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = blue });
-            context.Servers.Add(new Server {IPAdress = "192.168.23.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = white });
-            context.Servers.Add(new Server {IPAdress = "192.168.24.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = white });
-            context.Servers.Add(new Server {IPAdress = "192.168.25.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = white });
-            context.Servers.Add(new Server {IPAdress = "192.168.26.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = white });
-            context.Servers.Add(new Server {IPAdress = "192.168.27.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", Cluster = black });
+            context.Servers.Add(new Server {IPAdress = "192.168.20.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = blue });
+            context.Servers.Add(new Server {IPAdress = "192.168.21.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = blue });
+            context.Servers.Add(new Server {IPAdress = "192.168.22.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = blue });
+            context.Servers.Add(new Server {IPAdress = "192.168.23.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = white });
+            context.Servers.Add(new Server {IPAdress = "192.168.24.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = white });
+            context.Servers.Add(new Server {IPAdress = "192.168.25.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = white });
+            context.Servers.Add(new Server {IPAdress = "192.168.26.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = white });
+            context.Servers.Add(new Server {IPAdress = "192.168.27.000", SubnetMask = "255.255.255.0", Subnetwork = "192.168.20.0/4", ClusterKey = black });
 
             base.Seed(context);
         }

@@ -27,11 +27,37 @@ namespace BLL.Services
         /// </summary>
         public IEnumerable<ServerDTO> GetAllElements()
         {
-            var selectedUsers = uow.ServerRepository.GetAllElements();
-            Mapper.Initialize(config => config.CreateMap<Server, ServerDTO>());
+            var allServers = uow.ServerRepository.GetAllElements();
+            var allClusters = uow.ClusterRepository.GetAllElements();
 
-            return Mapper.Map<IEnumerable<Server>, IEnumerable<ServerDTO>>(selectedUsers);
+            var test = from server in allServers
+                       join cluster in allClusters 
+                       on server.ClusterID equals cluster.Id
+                            select new
+                            {
+                                ID = server.Id,
+                                IPAdress = server.IPAdress,
+                                SubnetMask = server.SubnetMask,
+                                Subnetwork = server.Subnetwork,
+                                NameOfCluster = cluster.Name
+                           };
+            List<ServerDTO> list = new List<ServerDTO>();
+            foreach (var r in test)
+            {
+                ServerDTO serverDTO = new ServerDTO
+                {
+                    Id = r.ID,
+                    IPAdress = r.IPAdress,
+                    SubnetMask = r.SubnetMask,
+                    Subnetwork = r.Subnetwork,
+                    Cluster = r.NameOfCluster
+                };
+                list.Add(serverDTO);
+            }
+
+            return list;
         }
+
 
         /// <summary>
         /// The method gets the server from DB and transfer it on PL
@@ -43,15 +69,16 @@ namespace BLL.Services
             {
                 throw new ValidationException("??????", "");
             }
-            var selectedUser = uow.ServerRepository.GetElement(id.Value);
-            if (selectedUser == null)
+            var selectedServer = uow.ServerRepository.GetElement(id.Value);
+            if (selectedServer == null)
             {
                 throw new ValidationException("??????", "");
 
             }
             Mapper.Initialize(config => config.CreateMap<Server, ServerDTO>());
 
-            return Mapper.Map<Server, ServerDTO>(selectedUser);
+
+            return Mapper.Map<Server, ServerDTO>(selectedServer);
         }
 
         public IEnumerable<ServerDTO> FindElement(Expression<Func<ServerDTO, bool>> predicate)
@@ -69,9 +96,9 @@ namespace BLL.Services
             if (item == null)
             {
                 throw new ValidationException("", "");
-            }              
+            }
             Mapper.Initialize(config => config.CreateMap<ServerDTO, Server>());
-            var newServer =  Mapper.Map<ServerDTO, Server>(item);
+            var newServer = Mapper.Map<ServerDTO, Server>(item);
             uow.ServerRepository.Create(newServer);
             uow.SaveChanges();
         }

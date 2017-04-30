@@ -17,6 +17,7 @@ namespace BLL.DTO
         public string SubnetMask { get; set; }
         public string Subnetwork { get; set; }
 
-        public ClusterDTO ClusterDTO { get; set; }
+        //public ClusterDTO ClusterDTOKey { get; set; }
+        public string Cluster { get; set; }
     }
 }

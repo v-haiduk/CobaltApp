@@ -21,7 +21,7 @@ namespace DAL.Entities
         public string Subnetwork { get; set; }
 
         public int? ClusterID { get; set; }
-        public Cluster Cluster { get; set; }
+        public virtual Cluster ClusterKey { get; set; }
 
     }
 }
