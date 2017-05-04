@@ -30,6 +30,8 @@ namespace BLL.Services
             var allServers = uow.ServerRepository.GetAllElements();
             var allClusters = uow.ClusterRepository.GetAllElements();
 
+            ServerDTO serv = new ServerDTO {};
+
             var test = from server in allServers
                        join cluster in allClusters 
                        on server.ClusterID equals cluster.Id
